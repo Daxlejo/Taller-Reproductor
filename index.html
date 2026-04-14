@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Reproductor de música" />
+  <title>🎧 WaveDistric9 — Reproductor de Música</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div id="app" class="app">
+    <!-- ═══ BASS BUMP BORDERS ═══ -->
+    <div class="bass-border bass-border--top" id="bass-top"></div>
+    <div class="bass-border bass-border--right" id="bass-right"></div>
+    <div class="bass-border bass-border--bottom" id="bass-bottom"></div>
+    <div class="bass-border bass-border--left" id="bass-left"></div>
+
+    <!-- ═══ LEFT SIDEBAR ═══ -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar__header">
+        <span class="sidebar__title">TU BIBLIOTECA</span>
+        <button class="sidebar__add-btn" id="btn-new-playlist" title="Crear nueva playlist">+</button>
+      </div>
+      <div class="sidebar__playlists" id="sidebar-playlists">
+        <!-- Playlist items rendered by JS -->
+      </div>
+      <!-- Mood Selector at bottom of sidebar -->
+      <div class="sidebar__mood">
+        <span class="sidebar__mood-label">Estado de ánimo</span>
+        <div class="mood-selector" id="mood-options">
+          <!-- Mood buttons rendered by JS -->
+        </div>
+      </div>
+    </aside>
+
+    <!-- ═══ MAIN CONTENT ═══ -->
+    <main class="main-content" id="main-content">
+      <!-- ═══ PLAYLIST HEADER ═══ -->
+      <div class="playlist-hero" id="playlist-hero">
+        <div class="playlist-hero__cover" id="hero-cover">
+          <div class="playlist-hero__vinyl" id="hero-vinyl">
+            <div class="vinyl__disc">
+              <div class="vinyl__label"></div>
+            </div>
+          </div>
+        </div>
+        <div class="playlist-hero__info">
+          <span class="playlist-hero__tag">PLAYLIST</span>
+          <h1 class="playlist-hero__name" id="hero-name">Mi Playlist</h1>
+          <span class="playlist-hero__count" id="hero-count">0 canciones</span>
+        </div>
+      </div>
+
+      <!-- ═══ PLAYLIST TOOLBAR ═══ -->
+      <div class="playlist-toolbar">
+        <div class="playlist-toolbar__left">
+          <button class="toolbar-btn" id="btn-shuffle" title="Mezclar">🔀</button>
+        </div>
+        <div class="playlist-toolbar__right">
+          <input type="file" id="input-files" accept="audio/*" multiple class="hidden" />
+          <button class="toolbar-btn toolbar-btn--add" id="btn-add-songs">+ Agregar</button>
+          <div class="search-inline" id="search-inline">
+            <input type="text" class="search-inline__input" id="search-input" placeholder="Buscar..." />
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ SONG TABLE HEADER ═══ -->
+      <div class="song-table-header">
+        <span class="col-num">#</span>
+        <span class="col-title">TÍTULO</span>
+        <span class="col-duration">⏱</span>
+      </div>
+
+      <!-- ═══ SONG LIST ═══ -->
+      <div class="song-list" id="song-list">
+        <div class="playlist-empty" id="playlist-empty">
+          <span class="playlist-empty__icon">🎶</span>
+          <p>Tu playlist está vacía</p>
+          <p class="playlist-empty__sub">Haz clic en "+ Agregar" para añadir canciones</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- ═══ BOTTOM PLAYER ZONE ═══ -->
+    <footer class="player-zone" id="player-zone">
+      <!-- 3D Floating song name (behind everything) -->
+      <div class="floating-title" id="floating-title">
+        <span class="floating-title__text" id="floating-text">WaveDistric9</span>
+      </div>
+
+      <!-- Full-width progress river -->
+      <div class="progress-river" id="progress-river">
+        <div class="progress-river__fill" id="progress-fill"></div>
+        <div class="progress-river__thumb" id="progress-thumb"></div>
+        <div class="progress-river__glow" id="progress-glow"></div>
+      </div>
+
+      <!-- Glassmorphism control hub -->
+      <div class="control-hub">
+        <span class="control-hub__time" id="progress-current">0:00</span>
+        <button class="hub-btn" id="btn-prev" title="Anterior">⏮</button>
+        <button class="hub-btn hub-btn--play" id="btn-play" title="Reproducir">▶</button>
+        <button class="hub-btn" id="btn-next" title="Siguiente">⏭</button>
+        <span class="control-hub__time" id="progress-duration">0:00</span>
+      </div>
+
+      <!-- Visualizer + Brand -->
+      <div class="player-zone__extras">
+        <div class="visualizer" id="visualizer"></div>
+        <span class="player-zone__brand">WaveDistric9</span>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
